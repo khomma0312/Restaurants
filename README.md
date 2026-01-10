@@ -96,14 +96,12 @@ docker-compose ps
 データベーススキーマを作成するために、マイグレーションを実行します：
 
 ```bash
-# Infrastructureプロジェクトに移動
-cd Restaurants.Infrastructure
-
+# プロジェクトのルートディレクトリで実行
 # マイグレーションを作成（初回のみ）
-dotnet ef migrations add InitialCreate --startup-project ../Restaurants.API
+dotnet ef migrations add InitialCreate --startup-project Restaurants.API
 
 # データベースを更新
-dotnet ef database update --startup-project ../Restaurants.API
+dotnet ef database update --startup-project Restaurants.API
 ```
 
 ### 5. アプリケーションの起動
@@ -209,9 +207,9 @@ dotnet ef database update --startup-project Restaurants.API
 ### データベースのリセット
 
 ```bash
-cd Restaurants.Infrastructure
-dotnet ef database drop --startup-project ../Restaurants.API
-dotnet ef database update --startup-project ../Restaurants.API
+# プロジェクトのルートディレクトリで実行
+dotnet ef database drop --startup-project Restaurants.API
+dotnet ef database update --startup-project Restaurants.API
 ```
 
 ## トラブルシューティング
