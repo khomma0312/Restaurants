@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Restaurants.Domain.props" />
+</Project>

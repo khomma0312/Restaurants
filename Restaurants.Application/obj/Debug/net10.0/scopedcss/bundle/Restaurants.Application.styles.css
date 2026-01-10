@@ -1,0 +1,9 @@
+@import '_content/Restaurants.Domain/Restaurants.Domain.908wcog2ql.bundle.scp.css';
+
+/* _content/Restaurants.Application/Component1.razor.rz.scp.css */
+.my-component[b-4fg6ybr2ov] {
+    border: 2px dashed red;
+    padding: 1em;
+    margin: 1em 0;
+    background-image: url('background.png');
+}
