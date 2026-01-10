@@ -201,9 +201,9 @@ docker-compose down -v
 ### 新しいマイグレーションの追加
 
 ```bash
-cd Restaurants.Infrastructure
-dotnet ef migrations add <MigrationName> --startup-project ../Restaurants.API
-dotnet ef database update --startup-project ../Restaurants.API
+# プロジェクトのルートディレクトリで実行
+dotnet ef migrations add <MigrationName> --startup-project Restaurants.API
+dotnet ef database update --startup-project Restaurants.API
 ```
 
 ### データベースのリセット
