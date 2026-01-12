@@ -5,3 +5,6 @@ webapi:
 classlib:
 	$(if $(PROJECT),,$(error PROJECT is required. Usage: make classlib PROJECT=YourProjectName))
 	dotnet new razorclasslib -n $(PROJECT)
+
+run:
+	dotnet run --project Restaurants.API

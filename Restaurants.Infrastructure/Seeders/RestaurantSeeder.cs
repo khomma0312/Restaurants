@@ -36,6 +36,7 @@ internal class RestaurantSeeder(RestaurantsDbContext dbContext): IRestaurantSeed
               Name = "Nashville Hot Chicken",
               Description = "Nashville Hot Chicken (10 pcs.)",
               Price = 10.30M,
+              KiloCalories = 920,
           },
 
           new ()

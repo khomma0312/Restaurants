@@ -97,12 +97,11 @@ docker-compose ps
 
 ```bash
 # プロジェクトのルートディレクトリで実行
-# マイグレーションを作成（初回のみ）
-dotnet ef migrations add InitialCreate --startup-project Restaurants.API
-
-# データベースを更新
-dotnet ef database update --startup-project Restaurants.API
+# データベースを更新（既存のマイグレーションを適用）
+dotnet ef database update --project Restaurants.Infrastructure --startup-project Restaurants.API
 ```
+
+> **注意**: `DbContext`は`Restaurants.Infrastructure`プロジェクトにあるため、`--project`オプションでInfrastructureプロジェクトを指定する必要があります。
 
 ### 5. アプリケーションの起動
 
@@ -200,16 +199,47 @@ docker-compose down -v
 
 ```bash
 # プロジェクトのルートディレクトリで実行
-dotnet ef migrations add <MigrationName> --startup-project Restaurants.API
-dotnet ef database update --startup-project Restaurants.API
+
+# 1. マイグレーションファイルを作成
+dotnet ef migrations add <MigrationName> --project Restaurants.Infrastructure --startup-project Restaurants.API
+
+# 2. データベースにマイグレーションを適用
+dotnet ef database update --project Restaurants.Infrastructure --startup-project Restaurants.API
+```
+
+#### オプションの説明
+
+| オプション | 説明 |
+|-----------|------|
+| `--project` | マイグレーションファイルが作成されるプロジェクト（`DbContext`がある場所） |
+| `--startup-project` | 接続文字列などの設定を読み込むプロジェクト（`appsettings.json`がある場所） |
+
+#### 例：Dishesテーブルにカロリーカラムを追加
+
+```bash
+dotnet ef migrations add AddKiloCaloriesToDishes --project Restaurants.Infrastructure --startup-project Restaurants.API
+dotnet ef database update --project Restaurants.Infrastructure --startup-project Restaurants.API
 ```
 
 ### データベースのリセット
 
 ```bash
 # プロジェクトのルートディレクトリで実行
-dotnet ef database drop --startup-project Restaurants.API
-dotnet ef database update --startup-project Restaurants.API
+dotnet ef database drop --project Restaurants.Infrastructure --startup-project Restaurants.API
+dotnet ef database update --project Restaurants.Infrastructure --startup-project Restaurants.API
+```
+
+### マイグレーションの削除（最後のマイグレーションを取り消す）
+
+```bash
+# 最後のマイグレーションを削除（まだデータベースに適用されていない場合）
+dotnet ef migrations remove --project Restaurants.Infrastructure --startup-project Restaurants.API
+```
+
+### マイグレーション一覧の確認
+
+```bash
+dotnet ef migrations list --project Restaurants.Infrastructure --startup-project Restaurants.API
 ```
 
 ## トラブルシューティング
