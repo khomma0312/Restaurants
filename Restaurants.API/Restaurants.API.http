@@ -3,31 +3,10 @@
 
 @RestaurantsAPI_HostAddress = {{host}}:{{port}}
 
-GET {{RestaurantsAPI_HostAddress}}/api/weatherforecast/23/example?max=45
-Accept: application/json
-ProjectUrl: {{$projectUrl}}
-Guid: {{$guid}}
-LocalDate: {{$datetime iso8601}}
-RandomInt: {{$randomInt}}
-
-###
-
-GET {{RestaurantsAPI_HostAddress}}/api/weatherforecast/currentDay
+### Get all restaurants
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants
 Accept: application/json
 
-###
-
-POST {{RestaurantsAPI_HostAddress}}/api/weatherforecast
-Content-Type: application/json
-
-"Kohachan"
-
-###
-
-POST {{RestaurantsAPI_HostAddress}}/api/weatherforecast/generate?count=2
-Content-Type: application/json
-
-{
-  "minDegree": 10,
-  "maxDegree": 30
-}
+### Get restaurant by ID
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants/9
+Accept: application/json
