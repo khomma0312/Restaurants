@@ -8,5 +8,29 @@ GET {{RestaurantsAPI_HostAddress}}/api/restaurants
 Accept: application/json
 
 ### Get restaurant by ID
-GET {{RestaurantsAPI_HostAddress}}/api/restaurants/9
+GET {{RestaurantsAPI_HostAddress}}/api/restaurants/7
 Accept: application/json
+
+### Create a new restaurant
+POST {{RestaurantsAPI_HostAddress}}/api/restaurants
+Content-Type: application/json
+
+{
+  "Name": "Sushi Place",
+  "Description": "Fresh sushi and sashimi",
+  "Category": "Japanese",
+  "HasDelivery": true,
+  "ContactEmail": "sushiplace@example.com",
+  "ContactNumber": "987-654-3210",
+  "City": "San Francisco",
+  "Street": "456 Sushi St",
+  "PostalCode": "94105"
+}
+
+### Create a new restaurant
+POST {{RestaurantsAPI_HostAddress}}/api/restaurants
+Content-Type: application/json
+
+{
+  "Name": "Sushi Place"
+}
