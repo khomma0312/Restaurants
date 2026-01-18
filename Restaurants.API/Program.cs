@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<ErrorHandlingMiddleware>();
+builder.Services.AddSwaggerGen();
 
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplication();
@@ -25,6 +26,13 @@ await seeder.Seed();
 // Configure the HTTP request pipeline.
 // ミドルウェアパイプラインに追加
 app.UseMiddleware<ErrorHandlingMiddleware>();
+
+// 開発環境の場合のみSwaggerを有効化
+if (app.Environment.IsDevelopment())
+{
+  app.UseSwagger();
+  app.UseSwaggerUI();
+}
 
 app.UseHttpsRedirection();
 
