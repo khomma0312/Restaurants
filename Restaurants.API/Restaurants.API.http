@@ -32,11 +32,11 @@ POST {{RestaurantsAPI_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Korean BBQ",
-  "Description": "Authentic Korean barbecue experience",
-  "Category": "Korean",
-  "HasDelivery": true,
-  "ContactEmail": "koreanbbq-at@example.com",
+  "Name": "American Diner",
+  "Description": "Classic American food",
+  "Category": "American",
+  "HasDelivery": false,
+  "ContactEmail": "info@americandiner.com",
   "ContactNumber": "123-456-7890",
-  "PostalCode": "98-765"
+  "PostalCode": "54-321"
 }
