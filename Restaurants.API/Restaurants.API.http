@@ -27,10 +27,16 @@ Content-Type: application/json
   "PostalCode": "94105"
 }
 
-### Create a new restaurant
+### Create a new restaurant 2
 POST {{RestaurantsAPI_HostAddress}}/api/restaurants
 Content-Type: application/json
 
 {
-  "Name": "Sushi Place"
+  "Name": "Korean BBQ",
+  "Description": "Authentic Korean barbecue experience",
+  "Category": "Korean",
+  "HasDelivery": true,
+  "ContactEmail": "koreanbbq-at@example.com",
+  "ContactNumber": "123-456-7890",
+  "PostalCode": "98-765"
 }
